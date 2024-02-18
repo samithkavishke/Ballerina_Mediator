@@ -19,7 +19,6 @@ import static bal.mediator.Constants.FIRST_ARGUMENT;
 import static bal.mediator.Constants.FUNCTION_NAME;
 import static bal.mediator.Constants.RESULT;
 import static bal.mediator.Constants.SECOND_ARGUMENT;
-import static bal.mediator.Constants.THIRD_ARGUMENT;
 
 public class Call {
     public static void call(Environment env, BObject object) {
@@ -28,13 +27,10 @@ public class Call {
         Runtime balRuntime = new BalRuntime(scheduler);
         MessageContext context = (MessageContext) strand.getProperty(CONTEXT);
 
-        String firstArgument = extractArgument(context, FIRST_ARGUMENT);
-        String secondArgument = extractArgument(context, SECOND_ARGUMENT);
-//        String thirdArgument = extractArgument(context, THIRD_ARGUMENT);
+        String firstArgument = context.getProperty(FIRST_ARGUMENT).toString();
+        String secondArgument = context.getProperty(SECOND_ARGUMENT).toString();
 
         Object[] argumentsList = buildArguments(firstArgument, secondArgument);
-
-        String functionName = extractFunctionName(context);
 
         final Future balFuture = env.markAsync();
         Callback returnCallback = new Callback() {
@@ -50,21 +46,10 @@ public class Call {
                 balFuture.complete(result);
             }
         };
-        balRuntime.invokeMethodAsyncSequentially(object, functionName, null, null, returnCallback,
-                                                 null, PredefinedTypes.TYPE_ANY, argumentsList);
-    }
 
-    private static String extractArgument(MessageContext context, String argName) {
-        // Note: This function retrieves the specified argument from the message context.
-        // Depending on the payload structure, you may need to adjust the logic
-        // within this function to properly extract the desired argument.
-        return context.getEnvelope().getBody().getFirstElement().getFirstChildWithName(new QName(argName)).getText();
-    }
-
-    private static String extractFunctionName(MessageContext context) {
-        // Note: This function retrieves the name of the function to be invoked from the message context.
-        return context.getEnvelope().getBody().getFirstElement().
-                                                        getFirstChildWithName(new QName(FUNCTION_NAME)).getText();
+        balRuntime.invokeMethodAsyncSequentially(object, context.getProperty(FUNCTION_NAME).toString(), null,
+                                                 null, returnCallback, null,
+                                                 PredefinedTypes.TYPE_ANY, argumentsList);
     }
 
     private static Object[] buildArguments(String... arguments) {
