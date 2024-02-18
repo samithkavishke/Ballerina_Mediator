@@ -27,7 +27,8 @@ public class Call {
         Runtime balRuntime = new BalRuntime(scheduler);
         MessageContext context = (MessageContext) strand.getProperty(CONTEXT);
 
-        String firstArgument = context.getProperty(FIRST_ARGUMENT).toString();
+//        String firstArgument = context.getProperty(FIRST_ARGUMENT).toString();
+        String firstArgument = context.getEnvelope().getBody().getFirstElement().toString();
         String secondArgument = context.getProperty(SECOND_ARGUMENT).toString();
 
         Object[] argumentsList = buildArguments(firstArgument, secondArgument);
@@ -43,6 +44,7 @@ public class Call {
 
             @Override
             public void notifyFailure(BError result) {
+//                context.setProperty(RESULT, result.toString());
                 balFuture.complete(result);
             }
         };
