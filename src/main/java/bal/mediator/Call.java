@@ -19,6 +19,7 @@ import static bal.mediator.Constants.FIRST_ARGUMENT;
 import static bal.mediator.Constants.FUNCTION_NAME;
 import static bal.mediator.Constants.RESULT;
 import static bal.mediator.Constants.SECOND_ARGUMENT;
+import static bal.mediator.Constants.THIRD_ARGUMENT;
 
 public class Call {
     public static void call(Environment env, BObject object) {
@@ -29,6 +30,7 @@ public class Call {
 
         String firstArgument = extractArgument(context, FIRST_ARGUMENT);
         String secondArgument = extractArgument(context, SECOND_ARGUMENT);
+//        String thirdArgument = extractArgument(context, THIRD_ARGUMENT);
 
         Object[] argumentsList = buildArguments(firstArgument, secondArgument);
 
@@ -65,22 +67,15 @@ public class Call {
                                                         getFirstChildWithName(new QName(FUNCTION_NAME)).getText();
     }
 
-    private static Object[] buildArguments(String firstArgument, String secondArgument) {
+    private static Object[] buildArguments(String... arguments) {
         // Note: This function constructs the arguments array for the Ballerina function invocation.
         // Depending on the function signature on the Ballerina side, you may need to adjust the number
         // of arguments and their types accordingly.
-        return new Object[]{new BmpStringValue(firstArgument), true, new BmpStringValue(secondArgument), true};
+        Object[] args = new Object[arguments.length * 2];
+        for (int i = 0; i < arguments.length; i++) {
+            args[i * 2] = new BmpStringValue(arguments[i]);
+            args[i * 2 + 1] = true;
+        }
+        return args;
     }
-
-//    private static Object[] buildArguments(String... arguments) {
-//        // Note: This function constructs the arguments array for the Ballerina function invocation.
-//        // Depending on the function signature on the Ballerina side, you may need to adjust the number
-//        // of arguments and their types accordingly.
-//        Object[] args = new Object[arguments.length * 2];
-//        for (int i = 0; i < arguments.length; i++) {
-//            args[i * 2] = new BmpStringValue(arguments[i]);
-//            args[i * 2 + 1] = true;
-//        }
-//        return args;
-//    }
 }
