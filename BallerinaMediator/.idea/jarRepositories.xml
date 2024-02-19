@@ -7,9 +7,9 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="wso2-nexus-repository-1" />
-      <option name="name" value="wso2-nexus-repository-1" />
-      <option name="url" value="http://maven.wso2.org/nexus/content/groups/wso2-public/" />
+      <option name="id" value="wso2-nexus" />
+      <option name="name" value="wso2-nexus" />
+      <option name="url" value="https://maven.wso2.org/nexus/content/groups/wso2-public/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -20,16 +20,6 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="wso2-maven2-repository-1" />
-      <option name="name" value="wso2-maven2-repository-1" />
-      <option name="url" value="http://dist.wso2.org/maven2" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="wso2-nexus" />
-      <option name="name" value="wso2-nexus" />
-      <option name="url" value="http://maven.wso2.org/nexus/content/groups/wso2-public/" />
     </remote-repository>
   </component>
 </project>

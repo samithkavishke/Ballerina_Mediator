@@ -3,6 +3,7 @@ package bal.mediator;
 public class Constants {
     public static final String RESULT = "result";
     public static final String CONTEXT = "context";
+    public static final String PAYLOAD = "payload";
     public static final String FIRST_ARGUMENT = "firstArgument";
     public static final String SECOND_ARGUMENT = "secondArgument";
     public static final String FUNCTION_NAME = "functionName";

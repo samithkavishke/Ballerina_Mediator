@@ -5,10 +5,18 @@ function init() returns error? {
     call(bar);
 }
 
+xmlns "http://ws.apache.org/ns/synapse" as ns;
+
 class DataMapper {
     function transform_1(string value) returns string {
         // Please update the logic
-        return value;
+        xml|error fromString = xml:fromString(value);
+        if (fromString is xml) {
+            // return  fromString.toString();
+            return (fromString/<ns:book>[0]).toString();
+        } else {
+            return "fromString is error";
+        }
     }
 
     function transform_2(string value1, string value2) returns string {

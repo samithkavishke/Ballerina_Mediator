@@ -5,13 +5,13 @@ import org.apache.synapse.MessageContext;
 import org.apache.synapse.mediators.AbstractMediator;
 
 import java.util.HashMap;
-import java.util.Map;
 
-import static bal.mediator.Constants.CONTEXT;
 import static bal.mediator.Constants.FIRST_ARGUMENT;
 import static bal.mediator.Constants.FUNCTION_NAME;
 import static bal.mediator.Constants.MODULE_NAME;
 import static bal.mediator.Constants.ORG_NAME;
+import static bal.mediator.Constants.PAYLOAD;
+import static bal.mediator.Constants.RESULT;
 import static bal.mediator.Constants.SECOND_ARGUMENT;
 import static bal.mediator.Constants.VERSION;
 import static io.ballerina.runtime.internal.BalRuntime.balStart;
@@ -23,10 +23,15 @@ public class BalMediator extends AbstractMediator {
 	private String functionName;
 
 	public boolean mediate(MessageContext context) {
-		context.setProperty(FIRST_ARGUMENT, getFirstArgument());
-		context.setProperty(SECOND_ARGUMENT, getSecondArgument());
-		context.setProperty(FUNCTION_NAME, getFunctionName());
-		balStart(scheduler, new HashMap<>(Map.of(CONTEXT, context)), ORG_NAME, MODULE_NAME, VERSION);
+		HashMap<String, Object> properties = new HashMap<>() {{
+			put(PAYLOAD, getPayload(context));
+			put(FIRST_ARGUMENT, getFirstArgument());
+			put(SECOND_ARGUMENT, getSecondArgument());
+			put(FUNCTION_NAME, getFunctionName());
+		}};
+
+		balStart(scheduler, properties, ORG_NAME, MODULE_NAME, VERSION);
+		context.setProperty(RESULT, properties.get(RESULT));
 		return true;
 	}
 
@@ -52,5 +57,9 @@ public class BalMediator extends AbstractMediator {
 
 	public void setFunctionName(String functionName) {
 		this.functionName = functionName;
+	}
+
+	public String getPayload(MessageContext context) {
+		return context.getEnvelope().getBody().getFirstElement().toString();
 	}
 }
