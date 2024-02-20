@@ -35,12 +35,14 @@
       <artifactId>axis2</artifactId>
       <version>1.6.1-wso2v63</version>
     </dependency>
+    <!--    Please use the following command to publish Ballerina runtime artifacts to the local repository-->
+    <!--    First, navigate to the datamapper/target/bin directory, and then execute the following command.-->
+    <!--    mvn install:install-file -Dfile=datamapper.jar -DgroupId=ballerina.mediator -DartifactId=datamapper -Dversion=1.0 -Dpackaging=jar-->
     <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>bal</artifactId>
+      <groupId>ballerina.mediator</groupId>
+      <artifactId>datamapper</artifactId>
       <version>1.0</version>
     </dependency>
-
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>

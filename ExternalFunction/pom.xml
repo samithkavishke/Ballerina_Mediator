@@ -2,70 +2,22 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-<!--  <parent>-->
-<!--    <groupId>wso2.sampleHelloWorld</groupId>-->
-<!--    <artifactId>Test</artifactId>-->
-<!--    <version>1.0.0-SNAPSHOT</version>-->
-<!--  </parent>-->
   <groupId>bal.mediator</groupId>
   <artifactId>ExternalFunction</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>ExternalFunction</name>
   <description>ExternalFunction</description>
-<!--  <properties>-->
-<!--    <CApp.type>lib/synapse/mediator</CApp.type>-->
-<!--  </properties>-->
   <dependencies>
-<!--    <dependency>-->
-<!--      <groupId>org.apache.synapse</groupId>-->
-<!--      <artifactId>synapse-core</artifactId>-->
-<!--      <version>2.1.7-wso2v227</version>-->
-<!--      <exclusions>-->
-<!--        <exclusion>-->
-<!--          <artifactId>log4j</artifactId>-->
-<!--          <groupId>log4j</groupId>-->
-<!--        </exclusion>-->
-<!--      </exclusions>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.apache.axis2.wso2</groupId>-->
-<!--      <artifactId>axis2</artifactId>-->
-<!--      <version>1.6.1-wso2v63</version>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>commons-logging</groupId>-->
-<!--      <artifactId>commons-logging</artifactId>-->
-<!--      <version>1.1.1</version>-->
-<!--    </dependency>-->
+<!--    Please use the following command to publish Ballerina runtime artifacts to the local repository-->
+<!--    First, navigate to the datamapper/target/bin directory, and then execute the following command.-->
+<!--    mvn install:install-file -Dfile=datamapper.jar -DgroupId=ballerina.mediator -DartifactId=datamapper -Dversion=1.0 -Dpackaging=jar-->
     <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>bal</artifactId>
+      <groupId>ballerina.mediator</groupId>
+      <artifactId>datamapper</artifactId>
       <version>1.0</version>
     </dependency>
   </dependencies>
-<!--  <repositories>-->
-<!--    <repository>-->
-<!--      <releases>-->
-<!--        <enabled>true</enabled>-->
-<!--        <updatePolicy>daily</updatePolicy>-->
-<!--        <checksumPolicy>ignore</checksumPolicy>-->
-<!--      </releases>-->
-<!--      <id>wso2-nexus</id>-->
-<!--      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>-->
-<!--    </repository>-->
-<!--  </repositories>-->
-<!--  <pluginRepositories>-->
-<!--    <pluginRepository>-->
-<!--      <releases>-->
-<!--        <enabled>true</enabled>-->
-<!--        <updatePolicy>daily</updatePolicy>-->
-<!--        <checksumPolicy>ignore</checksumPolicy>-->
-<!--      </releases>-->
-<!--      <id>wso2-nexus</id>-->
-<!--      <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>-->
-<!--    </pluginRepository>-->
-<!--  </pluginRepositories>-->
   <build>
     <plugins>
       <plugin>
