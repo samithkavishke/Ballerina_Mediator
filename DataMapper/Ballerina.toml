@@ -8,4 +8,4 @@ distribution = "2201.9.0-SNAPSHOT"
 observabilityIncluded = true
 
 [[platform.java17.dependency]]
-path = "../ExternalFunction/target/ExternalFunction-1.0.0-SNAPSHOT.jar"
+path = "./ExternalFunction-1.0.0-SNAPSHOT.jar"

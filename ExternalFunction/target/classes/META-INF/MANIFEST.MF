@@ -2,20 +2,22 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Created-By: Apache Maven Bundle Plugin
 Tool: Bnd-1.15.0
-Bnd-LastModified: 1708376399916
-Export-Package: bal.mediator;uses:="io.ballerina.runtime.internal.schedu
- ling,io.ballerina.runtime.api,io.ballerina.runtime.api.async,io.balleri
+Bnd-LastModified: 1709270256891
+Export-Package: bal.mediator;uses:="io.ballerina.runtime.api,io.ballerin
+ a.runtime.internal.scheduling,io.ballerina.runtime.api.async,io.balleri
  na.runtime.api.values,io.ballerina.runtime.internal,io.ballerina.runtim
- e.api.types,io.ballerina.runtime.internal.values"
+ e.api.types,org.apache.synapse.core.axis2,io.ballerina.runtime.internal
+ .values"
 Import-Package: io.ballerina.runtime.api,io.ballerina.runtime.api.async,
  io.ballerina.runtime.api.types,io.ballerina.runtime.api.values,io.balle
  rina.runtime.internal,io.ballerina.runtime.internal.scheduling,io.balle
- rina.runtime.internal.values
+ rina.runtime.internal.values,org.apache.synapse.core.axis2;version="[3.
+ 0,4)"
 Bundle-Name: ExternalFunction
 Bundle-Description: ExternalFunction
 Bundle-SymbolicName: ExternalFunction
 DynamicImport-Package: *
 Bundle-Version: 1.0.0.SNAPSHOT
-Built-By: chirans
-Build-Jdk: 17.0.8.1
+Built-By: Samith
+Build-Jdk: 17
 
