@@ -10,8 +10,6 @@
   <description>Test</description>
   <modules>
     <module>ExternalFunction</module>
-    <module>TestConfigs</module>
-    <module>TestCompositeExporter</module>
   </modules>
   <scm>
     <connection>scm:git:https://github.com/username/repository.git</connection>
