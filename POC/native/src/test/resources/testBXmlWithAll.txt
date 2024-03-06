@@ -1,0 +1,7 @@
+<root xmlns="http://java.sun.com/JSP/Page">
+    <element attribute1="value1" attribute2="value2">
+        This is a CDATA section with &lt;b>formatted&lt;/b> text.
+    </element>
+    <?processing-instruction target="instruction-target" data="instruction-data"?>
+    <textElement>This is regular text content.</textElement>
+</root>

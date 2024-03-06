@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TestCompositeExporter/TestCompositeExporter.iml" filepath="$PROJECT_DIR$/TestCompositeExporter/TestCompositeExporter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestConfigs/TestConfigs.iml" filepath="$PROJECT_DIR$/TestConfigs/TestConfigs.iml" />
+    </modules>
+  </component>
+</project>

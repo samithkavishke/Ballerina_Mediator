@@ -1,0 +1,14 @@
+<root>
+    <message>This is a <![CDATA[<CDATA> section]]></message>
+    <details>
+        <author>John Doe</author>
+        <timestamp>2024-01-16T12:34:56</timestamp>
+    </details>
+    <content>
+        <![CDATA[
+            This is a multiline CDATA section.
+            It can contain <b>formatted</b> text, line breaks,
+            and special characters like & and <.
+        ]]>
+    </content>
+</root>

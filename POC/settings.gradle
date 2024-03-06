@@ -1,0 +1,18 @@
+plugins {
+    id "com.gradle.enterprise" version "3.8.1"
+}
+
+rootProject.name = 'omelement-intergration-poc'
+
+include ':omelement-native'
+//include ':omelement-ballerina'
+
+project(':omelement-native').projectDir = file("native")
+//project(':omelement-ballerina').projectDir = file("ballerina")
+
+//gradleEnterprise {
+//    buildScan {
+//        termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+//        termsOfServiceAgree = 'yes'
+//    }
+//}
