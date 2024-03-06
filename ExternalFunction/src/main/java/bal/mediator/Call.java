@@ -5,6 +5,7 @@
 
 package bal.mediator;
 
+import org.OmelementBXmlConversion.BXmlConverter;
 import io.ballerina.runtime.api.values.BXml;
 import io.ballerina.runtime.api.Environment;
 import io.ballerina.runtime.api.Future;
@@ -30,6 +31,7 @@ public class Call {
 		Scheduler scheduler = strand.scheduler;
 		BalRuntime balRuntime = new BalRuntime(scheduler);
 		Axis2MessageContext messageContext = (Axis2MessageContext) strand.getProperty("messageContext");
+		BXml payload =  (BXml)strand.getProperty("payload");;
 		Object firstArgument = strand.getProperty("firstArgument").toString();
 		Object secondArgument = strand.getProperty("secondArgument").toString();
 		String thirdArgument = strand.getProperty("thirdArgument").toString();
@@ -38,7 +40,7 @@ public class Call {
 		String sixthArgument = strand.getProperty("sixthArgument").toString();
 		String functionName = strand.getProperty("functionName").toString();
 
-		Object[] argumentsList = buildArguments(firstArgument, secondArgument);
+		Object[] argumentsList = buildArguments(payload,firstArgument, secondArgument);
 		final Future balFuture = env.markAsync();
 		Callback returnCallback = new Callback() {
 			public void notifySuccess(Object result) {
@@ -54,12 +56,13 @@ public class Call {
 		balRuntime.invokeMethodAsyncSequentially(object, functionName, (String)null, (StrandMetadata)null, returnCallback, (Map)null, PredefinedTypes.TYPE_ANY, argumentsList);
 	}
 
-	private static Object[] buildArguments(Object... arguments) {
-		Object[] args = new Object[arguments.length * 2];
-
+	private static Object[] buildArguments(BXml payload,Object... arguments) {
+		Object[] args = new Object[arguments.length * 2+2];
+		args[0] = payload;
+		args[1] = true;
 		for (int i = 0; i < arguments.length; i++) {
-			args[i * 2] = new BmpStringValue(arguments[i].toString()) ;
-			args[i * 2 + 1] = true;
+			args[i * 2+2] = new BmpStringValue(arguments[i].toString()) ;
+			args[i * 2 + 3] = true;
 		}
 
 		return args;

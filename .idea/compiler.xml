@@ -7,8 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TestCompositeExporter" />
+        <module name="BallerinaMediator" />
         <module name="ExternalFunction" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="TestCompositeExporter" target="1.5" />
+      <module name="TestConfigs" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

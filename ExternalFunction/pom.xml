@@ -13,6 +13,11 @@
 <!--    First, navigate to the datamapper/target/bin directory, and then execute the following command.-->
 <!--    mvn install:install-file -Dfile=datamapper.jar -DgroupId=ballerina.mediator -DartifactId=datamapper -Dversion=1.0 -Dpackaging=jar-->
     <dependency>
+      <groupId>ballerina</groupId>
+      <artifactId>omelement</artifactId>
+      <version>1.0.8-SNAPSHOT</version>
+    </dependency>
+    <dependency>
       <groupId>ballerina.mediator</groupId>
       <artifactId>datamapper</artifactId>
       <version>1.0</version>

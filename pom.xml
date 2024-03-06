@@ -9,6 +9,7 @@
   <name>Test</name>
   <description>Test</description>
   <modules>
+    <module>BallerinaMediator</module>
     <module>ExternalFunction</module>
   </modules>
   <scm>

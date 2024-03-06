@@ -1,65 +1,110 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package bal.mediator;
 
+import org.OmelementBXmlConversion.OMElementConverter;
+//import org.OmelementBXmlConversion.OMElementConverter;
+import org.apache.axiom.om.*;
+import io.ballerina.runtime.api.values.BXml;
+import io.ballerina.runtime.internal.BalRuntime;
 import io.ballerina.runtime.internal.scheduling.Scheduler;
+import java.util.HashMap;
 import org.apache.synapse.MessageContext;
 import org.apache.synapse.mediators.AbstractMediator;
 
-import java.util.HashMap;
-
-import static bal.mediator.Constants.FIRST_ARGUMENT;
-import static bal.mediator.Constants.FUNCTION_NAME;
-import static bal.mediator.Constants.MODULE_NAME;
-import static bal.mediator.Constants.ORG_NAME;
-import static bal.mediator.Constants.PAYLOAD;
-import static bal.mediator.Constants.RESULT;
-import static bal.mediator.Constants.SECOND_ARGUMENT;
-import static bal.mediator.Constants.VERSION;
-import static io.ballerina.runtime.internal.BalRuntime.balStart;
-
 public class BalMediator extends AbstractMediator {
 	static Scheduler scheduler = new Scheduler(false);
-	private String firstArgument ="";
+	private String firstArgument = "";
 	private String secondArgument = "";
-	private String functionName;
+	private String thirdArgument = "";
+	private String fourthArgument = "";
+	private String fifthArgument = "";
+	private String sixthArgument = "";
+	private String functionName = "transform_";
 
-	public boolean mediate(MessageContext context) {
-		HashMap<String, Object> properties = new HashMap<>() {{
-			put(PAYLOAD, getPayload(context));
-			put(FIRST_ARGUMENT, getFirstArgument());
-			put(SECOND_ARGUMENT, getSecondArgument());
-			put(FUNCTION_NAME, getFunctionName());
-		}};
+	public BalMediator() {
+	}
 
-		balStart(scheduler, properties, ORG_NAME, MODULE_NAME, VERSION);
-		context.setProperty(RESULT, properties.get(RESULT));
+	public boolean mediate(final MessageContext context) {
+		System.out.println("Hello from Ballerina Mediator");
+		HashMap<String, Object> properties = new HashMap<String, Object>() {
+			{
+				this.put("payload", BalMediator.this.getPayload(context));
+				this.put("firstArgument", BalMediator.this.getFirstArgument());
+				this.put("secondArgument", BalMediator.this.getSecondArgument());
+				this.put("thirdArgument", BalMediator.this.getThirdArgument());
+				this.put("fourthArgument", BalMediator.this.getFourthArgument());
+				this.put("fifthArgument", BalMediator.this.getFifthArgument());
+				this.put("sixthArgument", BalMediator.this.getSixthArgument());
+				this.put("functionName", BalMediator.this.getFunctionName());
+			}
+		};
+
+		BalRuntime.balStart(scheduler, properties, "wso2", "datamapper", "0");
+		context.setProperty("result", properties.get("result"));
 		return true;
 	}
 
 	public void setFirstArgument(String value) {
-		firstArgument = value;
+		this.firstArgument = value;
 	}
 
 	public String getFirstArgument() {
-		return firstArgument;
+		return this.firstArgument;
 	}
 
 	public void setSecondArgument(String value) {
-		secondArgument = value;
+		this.secondArgument = value;
 	}
 
 	public String getSecondArgument() {
-		return secondArgument;
+		return this.secondArgument;
+	}
+
+	public void setThirdArgument(String value) {
+		this.thirdArgument = value;
+	}
+
+	public String getThirdArgument() {
+		return this.thirdArgument;
 	}
 
 	public String getFunctionName() {
-		return functionName;
+		return this.functionName;
 	}
 
 	public void setFunctionName(String functionName) {
 		this.functionName = functionName;
 	}
 
-	public String getPayload(MessageContext context) {
-		return context.getEnvelope().getBody().getFirstElement().toString();
+	public BXml getPayload(MessageContext context) {
+		return OMElementConverter.toBXml(context.getEnvelope().getBody().getFirstElement());
+	}
+
+	public String getFourthArgument() {
+		return this.fourthArgument;
+	}
+
+	public void setFourthArgument(String fourthArgument) {
+		this.fourthArgument = fourthArgument;
+	}
+
+	public String getFifthArgument() {
+		return this.fifthArgument;
+	}
+
+	public void setFifthArgument(String fifthArgument) {
+		this.fifthArgument = fifthArgument;
+	}
+
+	public String getSixthArgument() {
+		return this.sixthArgument;
+	}
+
+	public void setSixthArgument(String sixthArgument) {
+		this.sixthArgument = sixthArgument;
 	}
 }
