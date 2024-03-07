@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Created-By: Apache Maven Bundle Plugin
 Tool: Bnd-1.15.0
-Bnd-LastModified: 1709695922583
+Bnd-LastModified: 1709702284117
 Import-Package: io.ballerina.runtime.api,io.ballerina.runtime.api.async,
  io.ballerina.runtime.api.types,io.ballerina.runtime.api.values,io.balle
  rina.runtime.internal,io.ballerina.runtime.internal.scheduling,io.balle

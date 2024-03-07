@@ -18,6 +18,7 @@ import io.ballerina.runtime.internal.BalRuntime;
 import io.ballerina.runtime.internal.scheduling.Scheduler;
 import io.ballerina.runtime.internal.scheduling.Strand;
 import io.ballerina.runtime.internal.values.BmpStringValue;
+import org.apache.axiom.om.OMElement;
 import org.apache.synapse.core.axis2.Axis2MessageContext;
 
 import java.util.Map;
@@ -44,7 +45,10 @@ public class Call {
 		final Future balFuture = env.markAsync();
 		Callback returnCallback = new Callback() {
 			public void notifySuccess(Object result) {
-				strand.setProperty("result", result.toString());
+				BXml bXml = (BXml) result;
+//				OMElement omElement = BXmlConverter.toOMElement(bXml);
+//				System.out.println(omElement);
+				strand.setProperty("result",bXml );
 				balFuture.complete(result);
 			}
 

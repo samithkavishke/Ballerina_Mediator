@@ -6,6 +6,7 @@
 package bal.mediator;
 
 import org.OmelementBXmlConversion.OMElementConverter;
+import org.OmelementBXmlConversion.BXmlConverter;
 //import org.OmelementBXmlConversion.OMElementConverter;
 import org.apache.axiom.om.*;
 import io.ballerina.runtime.api.values.BXml;
@@ -44,7 +45,7 @@ public class BalMediator extends AbstractMediator {
 		};
 
 		BalRuntime.balStart(scheduler, properties, "wso2", "datamapper", "0");
-		context.setProperty("result", properties.get("result"));
+		context.setProperty("result", BXmlConverter.toOMElement((BXml) properties.get("result")) );
 		return true;
 	}
 

@@ -23,10 +23,11 @@ class DataMapper {
 
     function transform_5(xml value,string value1,string value2) returns xml {
         // Please update the logic
-        xml value3 = xml `<ns:book>${value1}</ns:book>`;
-        xml value4 = xml `<ns:book>${value2}</ns:book>`;
+        // xml value3 = xml `<ns:book>${value1}</ns:book>`;
+        // xml value4 = xml `<ns:book>${value2}</ns:book>`;
         // return value +<ns:book>value1</ns:book> ;
-        return value+value3+value4;
+        xml value3 = xml `<ns:book>${value}</ns:book>` ;
+        return value3;
     }
 
     function transform_2(string value1, string value2) returns string {
