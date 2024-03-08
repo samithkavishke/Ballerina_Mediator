@@ -26,6 +26,7 @@ public class BalMediator extends AbstractMediator {
 	private String sixthArgument = "";
 	private String functionName = "transform_";
 
+//	private OMElement xmlvalue1;
 	public BalMediator() {
 	}
 
@@ -41,14 +42,20 @@ public class BalMediator extends AbstractMediator {
 				this.put("fifthArgument", BalMediator.this.getFifthArgument());
 				this.put("sixthArgument", BalMediator.this.getSixthArgument());
 				this.put("functionName", BalMediator.this.getFunctionName());
+				this.put("xmlProperty", context.getProperty("xmlProperty"));
 			}
 		};
 
 		BalRuntime.balStart(scheduler, properties, "wso2", "datamapper", "0");
+//		context.getProperty("")
 		context.setProperty("result", BXmlConverter.toOMElement((BXml) properties.get("result")) );
+
 		return true;
 	}
 
+//	public void setXmlvalue1(OMElement value) {
+//		this.xmlvalue1 = value;
+//	}
 	public void setFirstArgument(String value) {
 		this.firstArgument = value;
 	}

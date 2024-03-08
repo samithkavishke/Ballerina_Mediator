@@ -32,7 +32,7 @@ public class Call {
 		Scheduler scheduler = strand.scheduler;
 		BalRuntime balRuntime = new BalRuntime(scheduler);
 		Axis2MessageContext messageContext = (Axis2MessageContext) strand.getProperty("messageContext");
-		BXml payload =  (BXml)strand.getProperty("payload");;
+		BXml payload =  (BXml)strand.getProperty("payload");
 		Object firstArgument = strand.getProperty("firstArgument").toString();
 		Object secondArgument = strand.getProperty("secondArgument").toString();
 		String thirdArgument = strand.getProperty("thirdArgument").toString();
@@ -46,9 +46,7 @@ public class Call {
 		Callback returnCallback = new Callback() {
 			public void notifySuccess(Object result) {
 				BXml bXml = (BXml) result;
-//				OMElement omElement = BXmlConverter.toOMElement(bXml);
-//				System.out.println(omElement);
-				strand.setProperty("result",bXml );
+				strand.setProperty("result",bXml);
 				balFuture.complete(result);
 			}
 
