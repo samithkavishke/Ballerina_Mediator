@@ -11,6 +11,6 @@ observabilityIncluded = true
 # path = "./ExternalFunction-1.0.0-SNAPSHOT.jar"
 path = "../ExternalFunction/target/ExternalFunction-1.0.0-SNAPSHOT.jar"
 
-[[platform.java17.dependency]]
-path = "../POC/ballerina/target/"
+#[[platform.java17.dependency]]
+#path = "../POC/ballerina/target/"
 
