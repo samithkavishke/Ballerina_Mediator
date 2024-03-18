@@ -13,6 +13,8 @@ import io.ballerina.runtime.api.values.BXml;
 import io.ballerina.runtime.internal.BalRuntime;
 import io.ballerina.runtime.internal.scheduling.Scheduler;
 import java.util.HashMap;
+import java.util.Optional;
+
 import org.apache.synapse.MessageContext;
 import org.apache.synapse.mediators.AbstractMediator;
 
@@ -31,7 +33,11 @@ public class BalMediator extends AbstractMediator {
 	}
 
 	public boolean mediate(final MessageContext context) {
+
+		String firstValue = Utils.getStringParam(context, "firstArgument");
 		System.out.println("Hello from Ballerina Mediator");
+		System.out.println(firstValue);
+
 		HashMap<String, Object> properties = new HashMap<String, Object>() {
 			{
 				this.put("payload", BalMediator.this.getPayload(context));
