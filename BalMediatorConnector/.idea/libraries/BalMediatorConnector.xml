@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="BalMediatorConnector">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BalMediatorConnector.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
