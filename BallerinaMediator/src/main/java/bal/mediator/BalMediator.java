@@ -53,9 +53,6 @@ public class BalMediator extends AbstractMediator {
 		return true;
 	}
 
-//	public void setXmlvalue1(OMElement value) {
-//		this.xmlvalue1 = value;
-//	}
 	public void setFirstArgument(String value) {
 		this.firstArgument = value;
 	}

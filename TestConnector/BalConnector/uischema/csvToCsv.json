@@ -1,0 +1,27 @@
+{
+  "connectorName": "CSV",
+  "operationName": "csvToCsv",
+  "title": "Remove CSV Header",
+  "help": "<h1>Remove CSV Header</h1> <b>Remove headers form a CSV payload</b>",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "firstValue",
+              "displayName": "First Value",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "false",
+              "required": "false",
+              "helpTip": "first value of the payload"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

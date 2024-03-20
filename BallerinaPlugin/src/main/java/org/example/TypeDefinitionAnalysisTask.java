@@ -1,15 +1,10 @@
 package org.example;
 
-import io.ballerina.compiler.syntax.tree.FunctionDefinitionNode;
-import io.ballerina.compiler.syntax.tree.ImportDeclarationNode;
-import io.ballerina.compiler.syntax.tree.ImportOrgNameNode;
-import io.ballerina.compiler.syntax.tree.MemberTypeDescriptorNode;
+import io.ballerina.compiler.syntax.tree.*;
 import io.ballerina.projects.plugins.AnalysisTask;
 import io.ballerina.projects.plugins.SyntaxNodeAnalysisContext;
 
-import java.util.Optional;
-
-public class BalMediatorAnalysisTask implements AnalysisTask<SyntaxNodeAnalysisContext> {
+public class TypeDefinitionAnalysisTask implements AnalysisTask<SyntaxNodeAnalysisContext> {
     private static final String THIS_PKG_ORG = "samith";
     private static final String THIS_PKG_NAME = "mediator";
 
@@ -28,8 +23,9 @@ public class BalMediatorAnalysisTask implements AnalysisTask<SyntaxNodeAnalysisC
 
         // ....
 
-
-        MemberTypeDescriptorNode memberTypeDescriptorNode = (MemberTypeDescriptorNode)context.node();
+        TypeDefinitionNode typeDefinitionNode = (TypeDefinitionNode)context.node();
+        String typeName = typeDefinitionNode.typeName().toString();
+//        MemberTypeDescriptorNode memberTypeDescriptorNode = (MemberTypeDescriptorNode)context.node();
 
     }
 }
