@@ -11,12 +11,9 @@ public class BalMediatorCodeAnalyzer extends CodeAnalyzer {
 //        codeAnalysisContext.addSyntaxNodeAnalysisTask(
 //                new TypeDefinitionAnalysisTask(),  SyntaxKind.TYPE_DEFINITION);
         codeAnalysisContext.addSyntaxNodeAnalysisTask(
-               new LocalVarAnalysisTask(),  SyntaxKind.LOCAL_VAR_DECL
+               new LocalVarAnalysisTask(codeAnalysisContext),  SyntaxKind.LOCAL_VAR_DECL
         );
-//        codeAnalysisContext.addSyntaxNodeAnalysisTask(
-//
-//        );
-//        codeAnalysisContext.addSyntaxNodeAnalysisTask(
-//                new BalMediatorAnalysisTask(),  SyntaxKind.FUNCTION_DEFINITION);
+
+
     }
 }
