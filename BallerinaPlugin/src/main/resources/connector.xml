@@ -1,0 +1,10 @@
+<connector>
+    <component name="{{name}}" package="{{packageName}}">
+        {{#each components ~}}
+        <dependency component = "{{name}}"/>
+        {{/each ~}}
+        <description>{{description}}</description>
+    </component>
+    <icon>"{{iconPath}}"</icon>
+    <type>module</type>
+</connector>

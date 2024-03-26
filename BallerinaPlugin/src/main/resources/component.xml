@@ -1,0 +1,8 @@
+<component name="{{name}}" type="synapse/template">
+    <subComponents>
+        <component name="{{name}}">
+            <file>{{name}}_template.xml</file>
+            <description>{{description}}</description>
+        </component>
+    </subComponents>
+</component>
