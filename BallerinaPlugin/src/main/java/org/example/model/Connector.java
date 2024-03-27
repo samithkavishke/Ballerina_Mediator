@@ -69,6 +69,6 @@ public class Connector extends ModelElement {
         if (!file.exists()) {
             file.mkdir();
         }
-        Utils.generateXml(this.getType(),"connector/"+ this.getName());
+        Utils.generateXml(this.getType(),"connector/"+ this.getName(),this);
     }
 }

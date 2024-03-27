@@ -14,20 +14,20 @@ import samith/mediator as _;
 // }
 
 
-type F record {
-	string a;
-	string b;
-};
+// type F record {
+// 	string a;
+// 	string b;
+// };
 
-class Foo{
-	function X(string a, string b){
+// class Foo{
+// 	function X(string a, string b){
 		
-	}
+// 	}
 
-	function Y(string a, string b){
+// 	function Y(string a, string b){
 
-	}
-}
+// 	}
+// }
 
 // type Integration record {
 // 	Connector[] connectors;
@@ -51,3 +51,14 @@ class Foo{
 // 	string name;
 // 	string description;
 // };
+
+
+class blah{
+	function dothis(String a,String b){
+
+	}
+
+	function doThat(String c,String d,String e){
+
+	}
+}

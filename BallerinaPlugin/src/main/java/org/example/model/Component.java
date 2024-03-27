@@ -78,7 +78,7 @@ public class Component extends ModelElement {
         if (!file.exists()) {
             file.mkdir();
         }
-        Utils.generateXml(this.getType(), "connector/"+this.getName()+"/"+this.getName());
+        Utils.generateXml(this.getType(), "connector/"+this.getName()+"/"+this.getName(),this);
     }
 
     public void generateTemplateXml(){
@@ -86,6 +86,6 @@ public class Component extends ModelElement {
         if (!file.exists()) {
             file.mkdir();
         }
-        Utils.generateXml(this.getType(), "connector/"+this.getName()+"/"+this.getName() + "_template");
+        Utils.generateXml(this.getType()+"_template", "connector/"+this.getName()+"/"+this.getName() + "_template",this);
     }
 }

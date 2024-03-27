@@ -12,6 +12,7 @@ import org.example.model.Component;
 import org.example.model.Connector;
 import org.example.model.Param;
 
+import java.io.IOException;
 import java.util.Map;
 
 
@@ -40,5 +41,11 @@ public class ClassDefinitionAnalysisTask implements AnalysisTask<SyntaxNodeAnaly
             component.generateTemplateXml();
         }
         connector.generateInstanceXml();
+        try {
+            Utils.zipFolder("connector", "connector.zip");
+            Utils.deleteDirectory("connector");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
