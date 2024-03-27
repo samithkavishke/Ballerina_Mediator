@@ -70,18 +70,22 @@ public class Component extends ModelElement {
 //    }
 
     public void generateInstanceXml(){
-        File file = new File("connector");
+        File root = new File("connector");
+        if (!root.exists()) {
+            root.mkdir();
+        }
+        File file = new File("connector/"+this.getName());
         if (!file.exists()) {
             file.mkdir();
         }
-        Utils.generateXml(this.getType(), this.getName());
+        Utils.generateXml(this.getType(), "connector/"+this.getName()+"/"+this.getName());
     }
 
     public void generateTemplateXml(){
-        File file = new File("connector/components");
+        File file = new File("connector/"+this.getName());
         if (!file.exists()) {
             file.mkdir();
         }
-        Utils.generateXml(this.getType(), "connector/components"+this.getName() + "_template");
+        Utils.generateXml(this.getType(), "connector/"+this.getName()+"/"+this.getName() + "_template");
     }
 }

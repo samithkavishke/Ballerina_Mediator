@@ -1,0 +1,5 @@
+[plugin]
+class = "org.example.BalMediatorCompilerPlugin"
+
+[[dependency]]
+path = "../../../../build/libs/BallerinaPlugin-1.0-SNAPSHOT.jar"

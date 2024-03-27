@@ -2,6 +2,7 @@ package org.example.model;
 
 import org.example.Utils;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Connector extends ModelElement {
@@ -64,6 +65,10 @@ public class Connector extends ModelElement {
     }
 
     public void generateInstanceXml(){
-        Utils.generateXml(this.getType(), this.getName());
+        File file = new File("connector");
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        Utils.generateXml(this.getType(),"connector/"+ this.getName());
     }
 }
